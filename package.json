@@ -1,17 +1,33 @@
 {
-	"name": "fcc-learn-npm-package-json",
-	"dependencies": {
-		"express": "^4.14.0"
-	},
-	"main": "server.js",
-	"scripts": {
-		"start": "node server.js"
-	},
-	"engines": {
-		"node": "4.4.5"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://idontknow/todo.git"
-	}
+  "name": "fcc-image-search-microservice",
+  "description": "freeCodeCamp Image Search Abstraction Layer Project",
+  "version": "1.0.0",
+  "author": "AtelesPaniscus",
+  "license": "MIT",
+  "homepage": "https://image-search-microservice-pa.glitch.me/",
+  "main": "server.js",
+  "scripts": {
+    "start": "./fudge",
+    "load": "node loaddatabase.js"
+  },
+  "engines": {
+    "node": "6.13.0"
+  },
+  "dependencies": {
+    "express": "^4.14.4",
+    "mongodb": "^3.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AtelesPaniscus/fcc-image-search-microservice"
+  },
+  "keywords": [
+    "fcc",
+    "microservice",
+    "full stack",
+    "MongoDB",
+    "Express",
+    "Node",
+    "javascript"
+  ]
 }

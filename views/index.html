@@ -1,18 +1,95 @@
 <!DOCTYPE html>
 <html>
 
-   <head>
-      <title>Backend Challenges | Free Code Camp</title>
-      <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-      <link href="/public/style.css" rel="stylesheet" type="text/css">
-   </head>
+  <head>
+    <title>Image Search Abstraction Layer Microserice</title>
+    <link href="/public/style.css" rel="stylesheet" type="text/css">
+  </head>
 
-   <body>
-      <div class="container">
-         <h1>Manage Node.js projects and npm packages using package.json</h1>
-         <h3>Part 1 of Free Code Camp Backend Challenges</h3>
-      </div>
-   </body>
+  <body>
+    <h1>freeCodeCamp Project: Image Search Abstraction Layer Microservice</h1>
+
+    <blockquote>
+      <p>User stories:</p>
+      <ol>
+          <li>I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li>
+          <li>I can paginate through the responses by adding a <em>?offset=2</em> parameter to the URL.</li>
+          <li>I can get a list of the most recently submitted search strings.</li>
+        </ol>
+    </blockquote>
+
+    <h2>Example of listing images by keyword</h2>
+
+    <p>Entering:</p>
+
+    <pre><code>      https://image-search-microservice-pa.glitch.me/api/imagesearch/gorilla</code></pre>
+
+    <p>will give something like:</p>
+
+    <pre><code>      [
+        {
+          "species": "Gorilla gorilla",
+          "status": "critically endangered",
+          "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Male_gorilla_in_SF_zoo.jpg/220px-Male_gorilla_in_SF_zoo.jpg",
+          "context": "https://en.wikipedia.org/wiki/Gorilla",
+          "alt-text": "Western gorillas are ground dwelling herbivorous apes from central Sub-Saharan Africa"
+        },
+        {
+          "species": "Gorilla beringei",
+          "status": "critically endangered",
+          "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Mountain_gorillas_%288209001529%29.jpg/220px-Mountain_gorillas_%288209001529%29.jpg",
+          "context": "https://en.wikipedia.org/wiki/Eastern_gorilla",
+          "alt-text": "Eastern Gorillas are the largest living primate"
+        }
+      ]</code></pre>
+
+    <p>
+    The meta-data of at most 10 images are listed: use <em>?offset=</em> to list yet more meta-data.
+    </p>
+
+    <h2>Example of listing the latest queries</h2>
+
+    <p>Entering:</p>
+
+    <pre><code>      https://image-search-microservice-pa.glitch.me/api/latest/imagesearch/</code></pre>
+
+    <p>will give something like:</p>
+
+    <pre><code>      {
+        "find": "gorilla",
+        "found": 2,
+        "stamp": "Sun, 18 Mar 2018 17:31:23 GMT"
+      },</code></pre>
+
+    <p>
+    Note the queries are presented newest first, oldest last.
+    Only the last 10 are listed: use <em>?offset=</em> to see older queries.
+    </p>
+
+    <h2>Keywords</h2>
+
+    <p>The following keywords should retrieve meta-data for an image or two:</p>
+
+    <ul>
+      <li>lemur</li>
+      <li>tarsier</li>
+      <li>marmoset</li>
+      <li>spider monkey</li>
+      <li>swamp monkey</li>
+      <li>gibbon</li>
+      <li>gorilla</li>
+      <li>chimpanzee</li>
+      <li>orangutan</li>
+    </ul>
+
+    <p>The following keywords may retrieve enough meta-data to make the `?offset=` worth using.</p>
+
+    <ul>
+      <li>new world monkeys</li>
+      <li>old world monkeys</li>
+      <li>monkeys</li>
+      <li>great apes</li>
+    </ul>
+  </body>
 
 </html>
