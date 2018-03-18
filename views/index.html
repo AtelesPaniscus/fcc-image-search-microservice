@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html>
 
-   <head>
-      <title>Backend Challenges | Free Code Camp</title>
-      <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <head>
+      <title>File Metadata</title>
       <link href="/public/style.css" rel="stylesheet" type="text/css">
-   </head>
+  </head>
 
-   <body>
-      <div class="container">
-         <h1>Manage Node.js projects and npm packages using package.json</h1>
-         <h3>Part 1 of Free Code Camp Backend Challenges</h3>
-      </div>
-   </body>
+  <body>
+    <h1>freeCodeCamp Project: File Metadata Microservice</h1>
+
+    <blockquote>
+      <p>User stories:</p>
+      <ol>
+        <li>I can submit a FormData object that includes a file upload.</li>
+        <li>I will receive the file size in bytes in the JSON response.</li>
+      </ol>
+    </blockquote>
+
+    <h2>Example:</h2>
+
+    <ul>
+      <li>Click on the <b>Browse...</b> button below and select file.</li>
+      <li>Click on the <b>Submit</b> button to upload the file to calculate its size.</li>
+      <li>The JSON response will look something like:</li>
+    </ul>
+
+    <pre><code>      {
+        "file": "fizzbuzz.erl",
+        "size": 211
+      }</code></pre>
+
+    <hr />
+
+    <p>Upload a file to view its size in bytes.</p>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" value="Browse..." name="pathname">
+      <input type="submit" value="Upload">
+    </form>
+  </body>
 
 </html>

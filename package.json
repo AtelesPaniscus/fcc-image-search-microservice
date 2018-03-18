@@ -1,17 +1,31 @@
 {
-	"name": "fcc-learn-npm-package-json",
-	"dependencies": {
-		"express": "^4.14.0"
-	},
-	"main": "server.js",
-	"scripts": {
-		"start": "node server.js"
-	},
-	"engines": {
-		"node": "4.4.5"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://idontknow/todo.git"
-	}
+  "name": "fcc-file-metadata-microservice",
+  "description": "freeCodeCamp File Metadata Microservice Project",
+  "version": "1.0.0",
+  "author": "AtelesPaniscus",
+  "license": "MIT",
+  "homepage": "https://file-metadata-microservice-pa.glitch.me/",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "6.13.0"
+  },
+  "dependencies": {
+    "express": "^4.12.4",
+    "multer": "^1.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AtelesPaniscus/fcc-file-metadata-microservice"
+  },
+  "keywords": [
+    "fcc",
+    "microservice",
+    "full stack",
+    "Express",
+    "Node",
+    "javascript"
+  ]
 }
