@@ -1,0 +1,9 @@
+#
+# A simple (aka crude) script to ensure that a local mongoDB server is running
+# and the primate collection has been loaded into the database before starting
+# the server application.
+
+killall mongod
+./mongod > /dev/null &
+node loaddatabase.js
+node server.js

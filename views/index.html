@@ -1,43 +1,95 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-      <title>File Metadata</title>
+   <head>
+      <title>Image Search Abstraction Layer Microserice</title>
       <link href="/public/style.css" rel="stylesheet" type="text/css">
-  </head>
+   </head>
 
-  <body>
-    <h1>freeCodeCamp Project: File Metadata Microservice</h1>
+   <body>
+    <h1>freeCodeCamp Project: Image Search Abstraction Layer Microservice</h1>
 
-    <blockquote>
-      <p>User stories:</p>
-      <ol>
-        <li>I can submit a FormData object that includes a file upload.</li>
-        <li>I will receive the file size in bytes in the JSON response.</li>
-      </ol>
-    </blockquote>
+      <blockquote>
+        <p>User stories:</p>
+        <ol>
+          <li>I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li>
+          <li>I can paginate through the responses by adding a <em>?offset=2</em> parameter to the URL.</li>
+          <li>I can get a list of the most recently submitted search strings.</li>
+        </ol>
+      </blockquote>
 
-    <h2>Example:</h2>
+      <h2>Example of listing images by keyword</h2>
 
-    <ul>
-      <li>Click on the <b>Browse...</b> button below and select file.</li>
-      <li>Click on the <b>Submit</b> button to upload the file to calculate its size.</li>
-      <li>The JSON response will look something like:</li>
-    </ul>
+      <p>Entering:</p>
 
-    <pre><code>      {
-        "file": "fizzbuzz.erl",
-        "size": 211
-      }</code></pre>
+      <pre><code>      https://image-search-microservice-pa.glitch.me/api/imagesearch/gorilla</code></pre>
 
-    <hr />
+      <p>will give something like:</p>
 
-    <p>Upload a file to view its size in bytes.</p>
+      <pre><code>      [
+      {
+        "species": "Gorilla gorilla",
+        "status": "critically endangered",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Male_gorilla_in_SF_zoo.jpg/220px-Male_gorilla_in_SF_zoo.jpg",
+        "context": "https://en.wikipedia.org/wiki/Gorilla",
+        "alt-text": "Western gorillas are ground dwelling herbivorous apes from central Sub-Saharan Africa"
+      },
+      {
+        "species": "Gorilla beringei",
+        "status": "critically endangered",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Mountain_gorillas_%288209001529%29.jpg/220px-Mountain_gorillas_%288209001529%29.jpg",
+        "context": "https://en.wikipedia.org/wiki/Eastern_gorilla",
+        "alt-text": "Eastern Gorillas are the largest living primate"
+      }
+    ]</code></pre>
 
-    <form action="/upload" method="post" enctype="multipart/form-data">
-      <input type="file" value="Browse..." name="pathname">
-      <input type="submit" value="Upload">
-    </form>
-  </body>
+      <p>
+      The meta-data of at most 10 images are listed: use <em>?offset=</em> to list yet more meta-data.
+      </p>
+
+      <h2>Example of listing the latest queries</h2>
+
+      <p>Entering:</p>
+
+      <pre><code>      https://image-search-microservice-pa.glitch.me/api/latest/imagesearch/</code></pre>
+
+      <p>will give something like:</p>
+
+      <pre><code>      {
+        "find": "gorilla",
+        "found": 2,
+        "stamp": "Sun, 18 Mar 2018 17:31:23 GMT"
+      },</code></pre>
+
+      <p>
+      Note the queries are presented newest first, oldest last.
+      Only the last 10 are listed: use <em>?offset=</em> to see older queries.
+      </p>
+
+      <h2>Keywords</h2>
+
+      <p>The following keywords should retrieve meta-data for an image or two:</p>
+
+      <ul>
+        <li>lemur</li>
+        <li>tarsier</li>
+        <li>marmoset</li>
+        <li>spider monkey</li>
+        <li>swamp monkey</li>
+        <li>gibbon</li>
+        <li>gorilla</li>
+        <li>chimpanzee</li>
+        <li>orangutan</li>
+      </ul>
+
+      <p>The following keywords may retrieve enough meta-data to make the `?offset=` worth using.</p>
+
+      <ul>
+        <li>new world monkeys</li>
+        <li>old world monkeys</li>
+        <li>monkeys</li>
+        <li>great apes</li>
+      </ul>
+   </body>
 
 </html>

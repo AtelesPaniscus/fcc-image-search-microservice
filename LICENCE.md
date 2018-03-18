@@ -1,4 +1,4 @@
-File Metadata Microservice
+Image Search Abstraction Layer Microservice
 Copyright (c) 2018 AtelesPaniscus. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
